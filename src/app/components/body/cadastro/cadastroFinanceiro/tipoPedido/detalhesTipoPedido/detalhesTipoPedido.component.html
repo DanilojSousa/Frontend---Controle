@@ -1,0 +1,28 @@
+<form class="example-form">
+  <mat-card class="cabecalho">
+      <div class="botao">
+        <mat-label class="label_cabecalho" disabled >Destalhes do Tipo:</mat-label>
+        <input class="id" matInput disabled [(ngModel)]="tipoPedido.id" name="id">
+          <button mat-stroked-button class="salvar" (click)="editar()">Editar</button>
+          <button mat-stroked-button class="voltar" (click)="voltar()">Voltar</button>
+        </div>
+  </mat-card>
+  
+    <table class="example-full-width" cellspacing="0"><tr>
+      <td><mat-form-field class="example-full-width medidas" appearance="fill">
+        <mat-label>Nome</mat-label>
+        <input matInput readonly="true" [(ngModel)]="tipoPedido.nome" name="nome">
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Serviço</mat-label>
+        <input matInput readonly="true" [(ngModel)]="tipoPedido.servico.descricao" name="descricao">
+      </mat-form-field></td>
+        <td>
+          <section class="example-section">
+            <mat-checkbox class="example-margin" [disabled]="true" [(ngModel)]="tipoPedido.destacaImpostos" name="destacaImpostos">Gera Imposto</mat-checkbox>
+            <mat-checkbox class="example-margin" [disabled]="true" [(ngModel)]="tipoPedido.geraEstoque" name="geraEstoque">Gera Estoque</mat-checkbox>
+            <mat-checkbox class="example-margin" [disabled]="true" [(ngModel)]="tipoPedido.geraDuplicata" name="geraDuplicata">Gera Duplicata</mat-checkbox>
+          </section>
+        </td>
+    </tr></table>
+  </form>

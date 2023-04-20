@@ -1,0 +1,32 @@
+<form class="example-form" #form="ngForm">
+  <mat-card class="cabecalho">
+      <div class="botao">
+        <mat-label class="label_cabecalho" disabled>Editar Tipo:</mat-label>
+        <input class="id" matInput disabled [(ngModel)]="tipoPedido.id" name="id">
+        <button mat-stroked-button class="salvar" (click)="salvar()">Salvar</button>
+      <button mat-stroked-button class="voltar" (click)="voltar()">voltar</button>
+    </div>
+  </mat-card>
+      
+    <table class="example-full-width" cellspacing="0"><tr>
+      <td><mat-form-field class="example-full-width medidas" appearance="fill">
+        <mat-label>Nome</mat-label>
+        <input matInput [(ngModel)]="tipoPedido.nome" name="nome" (input)="onInput()">
+      </mat-form-field></td>
+      <td><mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Serviço</mat-label>
+        <mat-select [(ngModel)]="tipoPedido.servico.id" name="servico" (input)="onInput()">
+          <mat-option *ngFor="let itens of listaServico" [value]="itens.id" required>
+            {{itens.descricao}}
+          </mat-option>
+        </mat-select>
+        </mat-form-field></td>
+        <td>
+          <section class="example-section">
+            <mat-checkbox class="example-margin" [(ngModel)]="tipoPedido.destacaImpostos" name="destacaImpostos">Gera Imposto</mat-checkbox>
+            <mat-checkbox class="example-margin" [(ngModel)]="tipoPedido.geraEstoque" name="geraEstoque">Gera Estoque</mat-checkbox>
+            <mat-checkbox class="example-margin" [(ngModel)]="tipoPedido.geraDuplicata" name="geraDuplicata">Gera Duplicata</mat-checkbox>
+          </section>
+        </td>
+    </tr></table>    
+  </form>

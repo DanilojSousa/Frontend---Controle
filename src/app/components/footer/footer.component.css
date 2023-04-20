@@ -1,0 +1,18 @@
+.footer{
+    bottom: 0px;
+    display: flex;
+    background-color: #1176c9;
+    height: 50px;
+    color: white;
+    font-size: 12px;
+}
+
+.icons_social{
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    margin-top: 10px;
+  }
+  .icons_social a{
+    margin-left: 10px;
+  }

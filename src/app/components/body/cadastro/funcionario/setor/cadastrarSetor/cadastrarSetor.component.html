@@ -1,0 +1,21 @@
+<form class="example-form" #form="ngForm">
+  <mat-card class="cabecalho">
+      <div class="botao">
+        <mat-label class="label_cabecalho" disabled>Cadastrar Setor</mat-label>
+        <input matInput [readonly]="true">
+        <button mat-stroked-button class="salvar" (click)="salvar()">Salvar</button>
+        <button mat-stroked-button class="voltar" (click)="voltar()">voltar</button>
+      </div>
+  </mat-card>
+  
+    <table class="example-full-width" cellspacing="0"><tr>
+      <td><mat-form-field class="example-full-width nome" appearance="fill">
+        <mat-label>Descrição</mat-label>
+        <input matInput [(ngModel)]="setor.nome" name="nome" required>
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width descricao" appearance="fill">
+        <mat-label>Cargo</mat-label>
+        <input matInput [(ngModel)]="setor.cargo" name="cargo" required>
+      </mat-form-field></td>
+    </tr></table>
+  </form>

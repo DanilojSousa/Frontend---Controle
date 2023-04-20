@@ -1,0 +1,47 @@
+.example-form {
+    width: 90%;
+    margin: auto;
+  }
+  .medidas{
+    width: 300px!important;
+  }
+  
+  .cabecalho{
+    background-color: #1176c9;
+    margin-bottom: 20px;
+  }
+
+  .example-full-width {
+    width: 100%;
+  }
+  table{
+    width: 70%!important;
+  }
+  .nome{
+    width: 350px;
+  }
+  .fornecedor{
+    width: 350px;
+  }
+  td {
+    padding-right: 8px;
+  }
+  .label_cabecalho{
+    width: 25%;
+    color: #ffffff;
+  }
+  .botao{
+    display: flex;
+    align-items: center;
+  }
+  button{
+    margin-left: 10px;
+  }
+  :host ::ng-deep .mat-form-field-appearance-fill .mat-form-field-underline::before{
+    background-color: #1176c9;
+  }
+  mat-label{
+    color:#1176c9 ;
+  }
+
+

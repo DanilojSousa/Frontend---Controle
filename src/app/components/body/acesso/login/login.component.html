@@ -1,0 +1,32 @@
+<form class="example-form">
+    <table class="example-full-width" cellspacing="0">
+        <mat-card class="cabecalho">
+        <tr>
+            <td>
+            <div class="example-container">
+                <mat-form-field appearance="fill">
+                  <mat-label>E-mail</mat-label>
+                  <input matInput placeholder="exemplo@examplo.com" [(ngModel)]="login.usuario.email" name="email" [formControl]="email" required (click)="validarPossueEmail()">
+                  <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                </mat-form-field>
+              </div>
+           </td>
+            <td class="senha-link">  
+                <mat-form-field appearance="fill" class="senha">
+                    <mat-label>Digite sua senha</mat-label>
+                    <input matInput [(ngModel)]="login.password" name="senha" [type]="hide ? 'password' : 'text'">
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
+                <button class="esqueceu_senha" mat-button (click)="esqueceuSenha()">Esqueceu a senha?</button>
+            </td>
+            <td class="botton">
+                <button mat-stroked-button class="salvar" (click)="entrar()">Entrar</button>
+                <button mat-stroked-button class="voltar" (click)="voltar()">Inicio</button>
+                <button class="cadastre_se" mat-button (click)="cadastreSe()">Cadastre-se!</button>
+            </td>
+        </tr>
+    </mat-card>
+    </table>
+</form>

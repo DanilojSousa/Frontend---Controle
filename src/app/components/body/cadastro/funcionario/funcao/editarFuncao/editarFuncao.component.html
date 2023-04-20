@@ -1,0 +1,58 @@
+<form class="example-form" #form="ngForm">
+  <mat-card class="cabecalho">
+      <div class="botao">
+        <mat-label class="label_cabecalho" disabled>Editar Função:</mat-label>
+        <input class="id" matInput disabled [(ngModel)]="funcionarioSetor.id" name="id">
+        <button mat-stroked-button class="salvar" (click)="salvar()">Salvar</button>
+      <button mat-stroked-button class="voltar" (click)="voltar()">voltar</button>
+    </div>
+  </mat-card>
+      
+    <table class="example-full-width" cellspacing="0"><tr>
+      <td> <mat-form-field class="example-full-width nome" appearance="fill">
+        <mat-label>Fornecedor</mat-label>
+        <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto" placeholder="Digite um fornecedor" (input)="onInput()">
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+          <mat-option *ngFor="let option of listaUsuarioFiltrado | async" [value]="option">
+            {{option.id}} - {{option.nome}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field></td>
+        
+        <td><mat-form-field appearance="fill" class="example-full-width">
+            <mat-label>Setor</mat-label>
+            <mat-select [(value)]="funcionarioSetor.setor.id" name="setor">
+                <mat-option *ngFor="let itens of listaSetor" [value]="itens.id" required (input)="onInput()">
+                {{itens.cargo}}
+                </mat-option>
+            </mat-select>
+            </mat-form-field></td>
+        
+            <td><mat-form-field appearance="fill" class="example-full-width">
+                <mat-label>Data</mat-label>
+                <input matInput [matDatepicker]="datepicker!" [(ngModel)]="funcionarioSetor.data" name="data" (input)="onInput()">
+                <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+                <mat-datepicker #datepicker>
+                  <mat-datepicker-actions>
+                    <button mat-button matDatepickerCancel>Cancel</button>
+                    <button mat-raised-button color="primary" matDatepickerApply>Aplicar</button>
+                  </mat-datepicker-actions>
+                </mat-datepicker>
+              </mat-form-field></td>
+
+              <td><mat-form-field appearance="fill" class="example-full-width">
+                <mat-label>Nível</mat-label>
+                <mat-select [(value)]="funcionarioSetor.nivelFuncao.id" name="nivel">
+                  <mat-option *ngFor="let itens of listaNivel" [value]="itens.id" required (input)="onInput()">
+                    {{itens.nome}}
+                  </mat-option>
+                </mat-select>
+                </mat-form-field></td>
+
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Salário</mat-label>
+        <input matInput currencyMask  [(ngModel)]="funcionarioSetor.salario" [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" name="salario" (input)="onInput()">
+      </mat-form-field></td> 
+    </tr></table> 
+  </form>
+

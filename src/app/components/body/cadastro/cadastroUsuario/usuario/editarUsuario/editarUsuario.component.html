@@ -1,0 +1,105 @@
+<form class="example-form" #form="ngForm">
+  <mat-card class="cabecalho">
+      <div class="botao">
+        <mat-label class="label_cabecalho" disabled>Editar Cadastro:</mat-label>
+        <input class="id" matInput disabled [(ngModel)]="usuario.id" name="id">
+        <button mat-stroked-button class="salvar" (click)="salvar()">Salvar</button>
+      <button mat-stroked-button class="voltar" (click)="voltar()">voltar</button>
+    </div>
+  </mat-card>
+      
+    <table class="example-full-width" cellspacing="0"><tr>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Nome</mat-label>
+        <input matInput [(ngModel)]="usuario.nome" name="nome" (input)="onInput()">
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>E-mail</mat-label>
+        <input matInput [(ngModel)]="usuario.email" name="email" (input)="onInput()">
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Telefone</mat-label>
+        <input matInput [(ngModel)]="usuario.fone" *ngIf="fone()" mask="(00) 00000-0000" name="fone" (input)="onInput()">
+        <input matInput [(ngModel)]="usuario.fone" *ngIf="!fone()" mask="(00) 0000-0000" name="fone" (input)="onInput()">
+      </mat-form-field></td> 
+    </tr></table>
+  
+    <table class="example-full-width" cellspacing="0"><tr>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>CEP</mat-label>
+        <input matInput [(ngModel)]="usuario.cep" name="cep" (blur)="consultaCep(form)" required (input)="onInput()">
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Endereço</mat-label>
+        <input matInput [(ngModel)]="usuario.endereco" name="endereco" (input)="onInput()">
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width number-uf" appearance="fill">
+        <mat-label>N°</mat-label>
+        <input matInput [(ngModel)]="usuario.numero" name="numero" (input)="onInput()">
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Bairro</mat-label>
+        <input matInput [(ngModel)]="usuario.bairro" name="bairro" (input)="onInput()">
+      </mat-form-field></td>  
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Cidade</mat-label>
+        <input matInput [(ngModel)]="usuario.cidade" name="cidade" (input)="onInput()">
+      </mat-form-field></td>
+      <td><mat-form-field appearance="fill" class="example-full-width number-uf">
+        <mat-label>UF</mat-label>
+        <input matInput [(ngModel)]="usuario.uf" name="uf" (input)="onInput()">
+        </mat-form-field></td>
+    </tr></table>
+  
+    <table class="example-full-width" cellspacing="0"><tr>
+      <td><mat-form-field class="example-full-width cpf" appearance="fill">
+        <mat-label>CPF</mat-label>
+        <input matInput [(ngModel)]="usuario.cpf" mask="000.000.000-00" name="cpf" (input)="onInput()">
+      </mat-form-field></td>
+
+      <td><mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Data de Nascimento</mat-label>
+        <input matInput [matDatepicker]="datepicker!" [(ngModel)]="usuario.nascimento" name="nascimento" (input)="onInput()">
+        <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+        <mat-datepicker #datepicker>
+          <mat-datepicker-actions>
+            <button mat-button matDatepickerCancel>Cancel</button>
+            <button mat-raised-button color="primary" matDatepickerApply>Aplicar</button>
+          </mat-datepicker-actions>
+        </mat-datepicker>
+      </mat-form-field></td>
+     
+      <td><mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Situação</mat-label>
+        <mat-select [(value)]="usuario.situacao.id" name="nome" (input)="onInput()">
+          <mat-option *ngFor="let itens of listaSituacao" [value]="itens.id" required>
+            {{itens.nome}}
+          </mat-option>
+        </mat-select>
+        </mat-form-field></td>
+
+        <td><mat-form-field appearance="fill" class="example-full-width">
+          <mat-label>Nível Acesso</mat-label>
+          <mat-select [(ngModel)]="usuario.role.id" name="nivelAcesso" (input)="onInput()">
+            <mat-option *ngFor="let itens of listaRole" [value]="itens.id" required>
+              {{itens.nome}}
+            </mat-option>
+          </mat-select>
+          </mat-form-field></td>
+
+      <td><mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Data de Registro</mat-label>
+        <input matInput [matDatepicker]="datepicker!" [(ngModel)]="usuario.dataRegistro" name="dataRegistro" (input)="onInput()">
+        <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+        <mat-datepicker #datepicker>
+          <mat-datepicker-actions>
+            <button mat-button matDatepickerCancel>Cancel</button>
+            <button mat-raised-button color="primary" matDatepickerApply>Aplicar</button>
+          </mat-datepicker-actions>
+        </mat-datepicker>
+      </mat-form-field></td>
+
+    </tr></table>
+
+    
+  </form>

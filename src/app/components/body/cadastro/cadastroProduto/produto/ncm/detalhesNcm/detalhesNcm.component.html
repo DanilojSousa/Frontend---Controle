@@ -1,0 +1,20 @@
+<form class="example-form">
+  <mat-card class="cabecalho">
+      <div class="botao">
+        <mat-label class="label_cabecalho" disabled>Destalhes NCM:</mat-label>
+        <input class="id" matInput disabled [(ngModel)]="ncm.id" name="id">
+          <button mat-stroked-button class="salvar" (click)="editar()">Editar</button>
+          <button mat-stroked-button class="voltar" (click)="voltar()">Voltar</button>
+        </div>
+  </mat-card>
+  
+   
+    <table class="example-full-width" cellspacing="0"><tr>
+        <td><mat-form-field class="example-full-width nome" appearance="fill">
+        <mat-label>Número Ncm</mat-label>
+        <input matInput readonly="true" [(ngModel)]="ncm.numeroNcm" name="nome">
+      </mat-form-field></td>
+      
+    </tr></table>
+  </form>
+

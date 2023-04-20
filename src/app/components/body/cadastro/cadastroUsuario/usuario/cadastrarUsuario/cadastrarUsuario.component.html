@@ -1,0 +1,169 @@
+<form class="example-form" #form="ngForm">
+  <mat-card class="cabecalho">
+      <div class="botao">
+        <mat-label class="label_cabecalho" disabled>Cadastro Cliente</mat-label>
+        <input matInput [readonly]="true" [(ngModel)]="usuario.nome">
+        <button mat-stroked-button class="salvar" (click)="salvar()">Salvar</button>
+        <button mat-stroked-button class="voltar" (click)="voltar()">voltar</button>
+      </div>
+  </mat-card>
+    <table class="example-full-width" cellspacing="0"><tr><td class="checkbox">
+      <section class="example-section">
+          <mat-checkbox class="example-margin" [(ngModel)]="usuario.cliente" (click)="tipoCliente()" name="cliente">Cliente</mat-checkbox>
+          <mat-checkbox class="example-margin" [(ngModel)]="usuario.fornecedor" (click)="tipoFornecedor()" name="fornecedor">Fornecedor</mat-checkbox>
+          <mat-checkbox class="example-margin" [(ngModel)]="usuario.funcionario" (click)="tipoFuncionario()" name="funcionario">Funcionário</mat-checkbox>
+      </section>
+    </td></tr></table>
+
+    <table *ngIf="usuario.cliente || usuario.funcionario" class="example-full-width" cellspacing="0"><tr>
+    <td ><mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>CPF</mat-label>
+      <input matInput [(ngModel)]="usuario.cpf" mask="000.000.000-00" name="cpf" required>
+    </mat-form-field></td>
+    
+    <td><mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Data de nascimento</mat-label>
+        <input matInput [matDatepicker]="datepicker" [(ngModel)]="usuario.nascimento" name="nascimento" required>
+        <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+        <mat-datepicker #datepicker>
+          <mat-datepicker-actions>
+            <button mat-button matDatepickerCancel>Cancel</button>
+            <button mat-raised-button color="primary" matDatepickerApply>Aplicar</button>
+          </mat-datepicker-actions>
+        </mat-datepicker>
+      </mat-form-field></td>
+
+      <td><mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Situação</mat-label>
+        <mat-select [(ngModel)]="usuario.situacao" name="situacao">
+          <mat-option *ngFor="let itens of listaSituacao" [value]="itens" required>
+            {{itens.nome}}
+          </mat-option>
+        </mat-select>
+        </mat-form-field></td>
+        <td><mat-form-field appearance="fill" class="example-full-width">
+          <mat-label>Nível Acesso</mat-label>
+          <mat-select [(ngModel)]="usuario.role" name="nivelAcesso">
+            <mat-option *ngFor="let itens of listaRole" [value]="itens" required>
+              {{itens.nome}}
+            </mat-option>
+          </mat-select>
+          </mat-form-field></td>
+    </tr></table>
+
+    <table *ngIf="usuario.cliente || usuario.funcionario" class="example-full-width" cellspacing="0"><tr>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Nome</mat-label>
+        <input matInput [(ngModel)]="usuario.nome" name="nome" required>
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>E-mail</mat-label>
+        <input type="email" matInput [(ngModel)]="usuario.email" [errorStateMatcher]="matcher" name="email" (click)="validarPossueEmail()">
+         <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          Por favor, adiciona um e-mail
+        </mat-error>
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Telefone</mat-label>
+        <input matInput [(ngModel)]="usuario.fone" mask="(00) 00000-0000" name="fone" required>
+      </mat-form-field></td> 
+
+    </tr></table>
+
+    <table *ngIf="usuario.cliente || usuario.funcionario" class="example-full-width" cellspacing="0"><tr>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>CEP</mat-label>
+        <input matInput [(ngModel)]="usuario.cep" name="cep" (blur)="consultaCep(form)" required>
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Endereço</mat-label>
+        <input matInput [(ngModel)]="usuario.endereco" name="endereco" required>
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width number-uf" appearance="fill">
+        <mat-label>Nº</mat-label>
+        <input matInput [(ngModel)]="usuario.numero" name="numero" required>
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Bairro</mat-label>
+        <input matInput [(ngModel)]="usuario.bairro" name="bairro" required>
+      </mat-form-field></td>  
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Cidade</mat-label>
+        <input matInput [(ngModel)]="usuario.cidade" name="cidade" required>
+      </mat-form-field></td>
+      <td><mat-form-field appearance="fill" class="example-full-width number-uf">
+        <mat-label>UF</mat-label>
+        <input matInput [(ngModel)]="usuario.uf" name="uf" required>
+        </mat-form-field></td>
+    </tr></table>
+
+    <!--Forencedor-->
+    <table *ngIf="usuario.fornecedor" class="example-full-width" cellspacing="0"><tr>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>CNPJ</mat-label>
+        <input matInput [(ngModel)]="usuario.cnpj" mask="00.000.000/0000-00" (blur)="consultaCnpj(form)" name="cnpj" required>
+      </mat-form-field></td>
+
+      
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>IE</mat-label>
+        <input matInput [(ngModel)]="usuario.ie" name="ie">
+      </mat-form-field></td>
+
+      <td><mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Situação</mat-label>
+        <mat-select [(ngModel)]="usuario.situacao.id" name="situacao">
+          <mat-option *ngFor="let itens of listaSituacao" [value]="itens.id" required>
+            {{itens.nome}}
+          </mat-option>
+        </mat-select>
+        </mat-form-field></td>
+    </tr></table>
+
+    <table *ngIf="usuario.fornecedor" class="example-full-width" cellspacing="0"><tr>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Nome</mat-label>
+        <input disabled="true" matInput [(ngModel)]="usuario.nome" name="nome" required>
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>E-mail</mat-label>
+        <input disabled="true" type="email" matInput [(ngModel)]="usuario.email" [errorStateMatcher]="matcher" name="email" (click)="validarPossueEmail()">
+         <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          Por favor, adiciona um e-mail
+        </mat-error>
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Telefone</mat-label>
+        <input disabled="true" matInput [(ngModel)]="usuario.fone" mask="(00) 00000-0000" name="fone" required>
+      </mat-form-field></td> 
+
+    </tr></table>
+
+    <table *ngIf="usuario.fornecedor" class="example-full-width" cellspacing="0"><tr>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>CEP</mat-label>
+        <input disabled="true" matInput [(ngModel)]="usuario.cep" name="cep" (blur)="consultaCep(form)" required>
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Endereço</mat-label>
+        <input disabled="true" matInput [(ngModel)]="usuario.endereco" name="endereco" required>
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width number-uf" appearance="fill">
+        <mat-label>Nº</mat-label>
+        <input disabled="true" matInput [(ngModel)]="usuario.numero" name="numero" required>
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Bairro</mat-label>
+        <input disabled="true" matInput [(ngModel)]="usuario.bairro" name="bairro" required>
+      </mat-form-field></td>  
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Cidade</mat-label>
+        <input disabled="true" matInput [(ngModel)]="usuario.cidade" name="cidade" required>
+      </mat-form-field></td>
+      <td><mat-form-field appearance="fill" class="example-full-width number-uf">
+        <mat-label>UF</mat-label>
+        <input disabled="true" matInput [(ngModel)]="usuario.uf" name="uf" required>
+        </mat-form-field></td>
+    </tr></table>
+
+  </form>

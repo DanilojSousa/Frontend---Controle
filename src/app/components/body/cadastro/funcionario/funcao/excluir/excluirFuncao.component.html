@@ -1,0 +1,35 @@
+<form class="example-form">
+  <mat-card class="cabecalho">
+      <div class="botao">
+        <mat-label class="label_cabecalho" disabled>Excluir Função:</mat-label>
+        <input class="id" matInput disabled [(ngModel)]="funcionarioSetor.id" name="id">
+        <button mat-stroked-button class="excluir" (click)="openDialog()">Excluir</button>
+      <button mat-stroked-button class="voltar" (click)="voltar()">voltar</button>
+    </div>
+  </mat-card>
+      
+    <table class="example-full-width" cellspacing="0"><tr>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Funcionário</mat-label>
+        <input matInput readonly="true" [(ngModel)]="funcionarioSetor.usuario.nome" name="nome">
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Setor</mat-label>
+        <input matInput readonly="true" [(ngModel)]="funcionarioSetor.setor.cargo" name="cargo">
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Data</mat-label>
+        <input matInput readonly="true" [matDatepicker]="datepicker" [(ngModel)]="funcionarioSetor.data" name="data">
+        <mat-datepicker #datepicker></mat-datepicker>
+      </mat-form-field></td> 
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Nível</mat-label>
+        <input matInput readonly="true" [(ngModel)]="funcionarioSetor.nivelFuncao.nome" name="nivel">
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Salário</mat-label>
+        <input matInput currencyMask [(ngModel)]="funcionarioSetor.salario" [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" name="salario">
+      </mat-form-field></td>
+    </tr></table>
+  </form>
+

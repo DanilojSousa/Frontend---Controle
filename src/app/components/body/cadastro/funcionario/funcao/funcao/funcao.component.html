@@ -1,0 +1,95 @@
+<button mat-stroked-button class="novo" (click)="novaFuncao()">
+    Nova Função
+  </button>
+  <button mat-stroked-button class="voltar" (click)="voltar()">Inicio</button>
+  
+  <div *ngIf=" mostraSpinner; else loading">
+    <table mat-table [dataSource]="dataSource$">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>Código</th>
+        <td style="width: 10%" mat-cell *matCellDef="let element">
+          {{ element.id }}
+        </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="funcionario">
+        <th mat-header-cell *matHeaderCellDef>Funcionário</th>
+        <td style="width: 30%" mat-cell *matCellDef="let element">
+          {{ element.usuario.nome }}
+        </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="setor">
+        <th mat-header-cell *matHeaderCellDef>Setor</th>
+        <td style="width: 20%" mat-cell *matCellDef="let element">
+          {{ element.setor.nome}}
+        </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="cargo">
+        <th mat-header-cell *matHeaderCellDef>Cargo</th>
+        <td style="width: 20%" mat-cell *matCellDef="let element">
+          {{element.setor.cargo}}
+        </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="salario">
+        <th mat-header-cell *matHeaderCellDef>Salário</th>
+        <td style="width: 20%" mat-cell *matCellDef="let element">
+          {{element.salario | currency: 'BRL' }}
+        </td>
+      </ng-container>
+ 
+      <ng-container matColumnDef="acao">
+        <th class="acao" mat-header-cell *matHeaderCellDef>Ação</th>
+        <td class="botao_acao" mat-cell *matCellDef="let element">
+          <button
+            mat-mini-fab
+            color="primary"
+            class="botao_icone"
+            (click)="detalhes(element.id)"
+          >
+            <mat-icon>list</mat-icon>
+          </button>
+  
+          <button
+            mat-mini-fab
+            color="accent"
+            class="botao_icone"
+            (click)="editar(element.id)"
+          >
+            <mat-icon>edit</mat-icon>
+          </button>
+  
+          <button
+            mat-mini-fab
+            color="warn"
+            class="botao_icone"
+            (click)="deletar(element.id)"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+  <ng-template #loading>
+    <div class="spinner">
+      <mat-spinner color="purple"></mat-spinner>
+    </div>
+  </ng-template>
+  
+  <mat-paginator
+    [length]="length"
+    [pageIndex]="pageIndex"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="[4, 10, 20]"
+    (page)="loadPage($event)"
+    showFirstLastButtons
+    aria-label="Seleciona uma página">
+  </mat-paginator>
+  
+

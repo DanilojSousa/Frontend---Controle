@@ -1,0 +1,90 @@
+<mat-card class="toobar">
+  <div class="menus">
+    <div class="botton">
+      <button class="botton_menu" mat-button [matMenuTriggerFor]="menu">Cadastro</button>
+      <mat-menu class="mat-menu" #menu="matMenu">
+          <button class="mat-menu-item" mat-menu-item [matMenuTriggerFor]="pessoas">Usuários</button>
+          <button class="mat-menu-item" mat-menu-item [matMenuTriggerFor]="funcionario">Funcionário</button>
+          <button class="mat-menu-item" mat-menu-item [matMenuTriggerFor]="produto">Produto</button>
+          <button class="mat-menu-item" mat-menu-item [matMenuTriggerFor]="financeiro">Financeiro</button>
+          <button class="mat-menu-item" mat-menu-item [matMenuTriggerFor]="geral">Geral</button>
+          <button class="mat-menu-item" mat-menu-item routerLink="cadastro/relatorio">Relatório</button>
+      </mat-menu>
+    </div>
+  <!--SUB_MENU-->
+
+  <mat-menu #geral="matMenu">
+    <button mat-menu-item routerLink="cadastro/geral/situacao">Situação</button>
+    <button mat-menu-item routerLink="cadastro/geral/nivelAcesso">Nível Acesso</button>
+  </mat-menu>
+
+  <mat-menu #pessoas="matMenu">
+    <button mat-menu-item routerLink="cadastro/usuario">Usuario</button>
+    <button mat-menu-item routerLink="cadastro/login">Login</button>
+  </mat-menu>
+
+    <mat-menu #produto="matMenu">
+      <button mat-menu-item routerLink="cadastro/produto">Produto</button>
+      <button mat-menu-item routerLink="cadastro/produto/ncm">NCM</button>
+      <button mat-menu-item routerLink="cadastro/produto/marca">Marca</button>
+      <button mat-menu-item routerLink="cadastro/produto/grupo">Grupo</button>
+      <button mat-menu-item routerLink="cadastro/produto/unidadeMedida">Medida</button>
+    </mat-menu>
+
+    <mat-menu #financeiro="matMenu">
+      <button mat-menu-item routerLink="cadastro/financeiro/tipo">Tipo de Pedido</button>
+      <button mat-menu-item routerLink="cadastro/financeiro/situacao">Situação Pedido</button>
+      <button mat-menu-item routerLink="cadastro/financeiro/pagamento">Forma Pagamento</button>
+      <button mat-menu-item routerLink="cadastro/financeiro/servico">Serviço</button>
+    </mat-menu>
+
+    <mat-menu #funcionario="matMenu">
+      <button mat-menu-item routerLink="cadastro/funcionario/funcao">Função</button>
+      <button mat-menu-item routerLink="cadastro/funcionario/setor">Setor</button>
+      <button mat-menu-item routerLink="cadastro/funcionario/nivel">Nível</button>
+    </mat-menu>
+
+      <button class="botton_menu" mat-button [matMenuTriggerFor]="menu1">Financeiro</button>
+      <mat-menu class="mat-menu" #menu1="matMenu">
+        <button class="mat-menu-item" mat-menu-item routerLink="">Contas a pagar</button>
+        <button class="mat-menu-item" mat-menu-item routerLink="">Contas a receber</button>
+        <button class="mat-menu-item" mat-menu-item routerLink="">Relatório</button>
+      </mat-menu>
+    
+      <button class="botton_menu" mat-button [matMenuTriggerFor]="menu2">Vendas</button>
+      <mat-menu class="mat-menu" #menu2="matMenu">
+        <button class="mat-menu-item" mat-menu-item routerLink="venda/pedido">Pedido</button>
+        <button class="mat-menu-item" mat-menu-item routerLink="">Devolução</button>
+        <button class="mat-menu-item" mat-menu-item routerLink="">Garantia</button>
+        <button class="mat-menu-item" mat-menu-item routerLink="">Relatório</button>
+      </mat-menu>
+
+      <button class="botton_menu" mat-button [matMenuTriggerFor]="menu3">Compras</button>
+      <mat-menu class="mat-menu"  #menu3="matMenu">
+        <button class="mat-menu-item" mat-menu-item routerLink="">Pedido</button>
+        <button class="mat-menu-item" mat-menu-item routerLink="">Devolução</button>
+        <button class="mat-menu-item" mat-menu-item routerLink="">Garantia</button>
+        <button class="mat-menu-item" mat-menu-item routerLink="">Relatório</button>
+      </mat-menu>
+
+      <a routerLink="{{routerUrl}}">
+        <i class="material-icons">
+          {{icon}}
+        </i>
+        {{title}}
+      </a> 
+  </div>
+
+<div *ngIf="!logado()" class="botton_acesso">
+  <button class="botton_entrar" mat-button routerLink="acesso/login"><i class="material-icons entrar">
+    power_settings_new
+    </i></button>
+</div>
+<div *ngIf="logado()" class="botton_acesso">
+  <button class="botton_sair" mat-button (click)="sair()">
+    <i class="material-icons sair">
+    power_settings_new
+    </i></button>
+</div> 
+</mat-card>
+

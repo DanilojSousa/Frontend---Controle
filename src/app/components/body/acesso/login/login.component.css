@@ -1,0 +1,63 @@
+.example-form {
+    width: 90%;
+    min-width: 150px;
+    margin: auto;
+}
+
+.example-full-width{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+tr{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.senha-link{
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+.senha{
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+.example-container{
+    width: 400px;
+}
+mat-form-field{
+    width: 400px;
+}
+.botton{
+    display: flex;
+    align-items: flex-end;
+}
+.botton button{
+    margin-left: 10PX;
+}
+
+  :host ::ng-deep .mat-checkbox-frame{
+    border-color: #1176c9;
+  }
+
+  mat-label{
+    color:#1176c9 ;
+  }
+
+  .cadastre_se{
+    font-size: 10px;
+  }
+  .esqueceu_senha{
+    display: flex;
+    align-items: flex-end;
+    font-size: 10px;
+    margin-top: -20px;
+    padding-top: -20px;
+  }

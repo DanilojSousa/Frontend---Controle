@@ -1,0 +1,49 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.voltar{
+    background-color: white;
+    color: #1176c9;
+}
+.voltar:hover{
+    background-color: rgb(223, 219, 219);
+    color: #1176c9;
+}
+.salvar{
+    background-color:  rgb(53, 146, 53);
+    color: white;
+    padding: 0px!important;
+}
+.salvar:hover{
+    background-color: #509ddb;
+    color: white;
+}
+.novo{
+    background-color: #1176c9;
+    color: white; 
+}
+.novo:hover{
+    background-color: #509ddb;
+    color: white;
+}
+.excluir{
+    background-color: red;
+    color: white;
+    padding: 0px!important;
+}
+.excluir:hover{
+    background-color:  rgb(207, 92, 92);
+    color: white;
+}
+.msg-sucess{
+    background-color: green;
+    color: white;
+}
+.msg-error{
+    background-color: red;
+    color: white;
+}
+
+

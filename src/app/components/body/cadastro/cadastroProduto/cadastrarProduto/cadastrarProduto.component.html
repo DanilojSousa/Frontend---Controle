@@ -1,0 +1,101 @@
+<form class="example-form" #form="ngForm">
+  <mat-card class="cabecalho">
+      <div class="botao">
+        <mat-label class="label_cabecalho" disabled>Cadastrar Produto</mat-label>
+        <input matInput [readonly]="true">
+        <button mat-stroked-button class="salvar" (click)="salvar()">Salvar</button>
+        <button mat-stroked-button class="voltar" (click)="voltar()">voltar</button>
+      </div>
+  </mat-card>
+  
+    <table class="example-full-width" cellspacing="0"><tr>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Nome</mat-label>
+        <input matInput [(ngModel)]="produtos.nome" name="nome" required>
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Modelo</mat-label>
+        <input matInput [(ngModel)]="produtos.modelo" name="modelo" required>
+      </mat-form-field></td> 
+
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>PartNumber</mat-label>
+        <input matInput [(ngModel)]="produtos.partNumber" name="partNumber">
+      </mat-form-field></td>
+
+      <td><mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Marca</mat-label>
+        <mat-select [(ngModel)]="produtos.marca" name="marca">
+          <mat-option *ngFor="let itens of listaMarca" [value]="itens" required>
+            {{itens.nome}}
+          </mat-option>
+        </mat-select>
+        </mat-form-field></td>
+        
+        <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>EAN</mat-label>
+          <input matInput [(ngModel)]="produtos.ean" name="ean">
+        </mat-form-field></td> 
+    </tr></table>
+  
+    <table class="example-full-width" cellspacing="0"><tr>
+      <td><mat-form-field class="example-full-width medidas" appearance="fill">
+        <mat-label>Alt.</mat-label>
+        <input matInput type="number" [(ngModel)]="produtos.altura" name="altura">
+      </mat-form-field></td> 
+
+      <td><mat-form-field class="example-full-width medidas" appearance="fill">
+        <mat-label>Comp.</mat-label>
+        <input matInput type="number" [(ngModel)]="produtos.comprimento" name="comprimento">
+      </mat-form-field></td> 
+
+      <td><mat-form-field class="example-full-width medidas" appearance="fill">
+        <mat-label>larg.</mat-label>
+        <input matInput type="number" [(ngModel)]="produtos.largura" name="largura">
+      </mat-form-field></td> 
+
+      <td><mat-form-field class="example-full-width medidas" appearance="fill">
+        <mat-label>QTD Emb.</mat-label>
+        <input matInput type="number" [(ngModel)]="produtos.qtdEmbalagem" name="qtdEmbalagem">
+      </mat-form-field></td> 
+
+      <td><mat-form-field class="example-full-width medidas" appearance="fill">
+        <mat-label>QTD Un.</mat-label>
+        <input matInput type="number" [(ngModel)]="produtos.qtdUnidade" name="qtdUnidade">
+      </mat-form-field></td> 
+
+      <td><mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Unidade</mat-label>
+        <mat-select [(ngModel)]="produtos.unidadeMedida" name="numeroNCM">
+          <mat-option *ngFor="let itens of listaUnidade" [value]="itens" required>
+            {{itens.nome}}
+          </mat-option>
+        </mat-select>
+        </mat-form-field></td>
+
+      <td><mat-form-field class="example-full-width medidas" appearance="fill">
+        <mat-label>Garantia</mat-label>
+        <input matInput type="number" [(ngModel)]="produtos.garantia" name="garantia">
+      </mat-form-field></td>
+    </tr></table>
+  
+    <table class="example-full-width" cellspacing="0"><tr>
+      <td><mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>NCM</mat-label>
+        <mat-select [(ngModel)]="produtos.ncm" name="numeroNCM">
+          <mat-option *ngFor="let itens of listaNcm" [value]="itens">
+            {{itens.numeroNcm}}
+          </mat-option>
+        </mat-select>
+        </mat-form-field></td>
+
+      <td><mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Situação</mat-label>
+        <mat-select [(ngModel)]="produtos.situacao" name="situacao">
+          <mat-option *ngFor="let itens of listaSituacao" [value]="itens" required>
+            {{itens.nome}}
+          </mat-option>
+        </mat-select>
+        </mat-form-field></td>
+    </tr></table>
+  </form>

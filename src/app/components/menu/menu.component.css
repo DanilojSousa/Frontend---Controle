@@ -1,0 +1,77 @@
+.toobar{
+  width: 100%;
+  margin: 0px;
+  margin-right: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  background-color: #1176c9;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.botton{
+  display: flex;
+  justify-content: flex-start;
+}
+  .botton_menu{
+    width: 140px;
+    height: 40px;
+    color: #1176c9;
+    background-color: white;
+    margin-left: 10px;
+    border: 2px #1176c9 solid;
+    border-radius: 10px;
+    padding: 0px;
+  }
+
+  .botton_acesso{
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .botton_entrar{
+    color: white;
+    font-size: 18px;
+  }
+ .botton_sair{
+    color: red;
+    font-size: 18px;
+ }
+  .mat-menu{
+    background-color: #1176c9;
+    color: black;
+  }
+  .mat-menu-item{
+    color: #1176c9;
+  }
+  .mat-menu-item:hover{
+    background-color: #1176c9;
+    color: white;
+    border-radius: 10%;
+  }
+
+  a{
+    text-decoration: none;
+    color: white;
+    font-weight: 200;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+  }
+  a i{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+ .menus{
+  display: flex;
+ }
+
+ .entrar{
+  color: green;
+  font-size: 40px;
+ }
+ .sair{
+  color: red;
+  font-size: 40px;
+ }

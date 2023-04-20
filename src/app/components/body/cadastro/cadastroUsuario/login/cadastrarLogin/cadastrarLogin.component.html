@@ -1,0 +1,45 @@
+<form class="example-form" #form="ngForm">
+    <mat-card class="cabecalho">
+        <div class="botao">
+          <mat-label class="label_cabecalho" disabled>Cadastro Login</mat-label>
+          <input matInput [readonly]="true">
+          <button mat-stroked-button class="salvar" (click)="salvar()">Salvar</button>
+          <button mat-stroked-button class="voltar" (click)="voltar()">voltar</button>
+        </div>
+    </mat-card>
+       
+      <table class="example-full-width campo" cellspacing="0"><tr>
+      <td>
+        <mat-form-field class="example-full-width campo" appearance="fill">
+        <mat-label>Usuário</mat-label>
+        <input type="text" matInput [formControl]="myControl"  [matAutocomplete]="auto" placeholder="Digite o nome">
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+          <mat-option *ngFor="let option of listaUsuarioFiltrado | async" [value]="option">
+            {{option.id}} - {{option.nome}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field></td>
+  
+        <td><mat-form-field class="example-full-width campo" appearance="fill">
+          <mat-label>Apelido</mat-label>
+          <input matInput [(ngModel)]="login.apelido" name="apelido" required>
+        </mat-form-field></td>
+      </tr></table>
+        <table class="example-full-width campo" cellspacing="0"><tr>
+            <td><mat-form-field class="example-full-width campo" appearance="fill">
+                <mat-label>Senha</mat-label>
+                <input matInput [(ngModel)]="senha1" name="senha"  [type]="hide ? 'password' : 'text'">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+              </mat-form-field></td>
+
+            <td><mat-form-field class="example-full-widthn campo" appearance="fill">
+                <mat-label>Confirmar Senha</mat-label>
+                <input matInput [(ngModel)]="senha2" name="senha2" [type]="hide ?  'password' : 'text'" (blur)="validarSenha(form)">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+              </mat-form-field></td>
+        </tr></table> 
+    </form>

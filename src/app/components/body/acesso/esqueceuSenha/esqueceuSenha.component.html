@@ -1,0 +1,21 @@
+<form class="example-form">
+    <table class="example-full-width" cellspacing="0">
+        <mat-card class="cabecalho">
+        <tr>
+            <td>
+            <div class="example-container">
+                <mat-form-field appearance="fill">
+                  <mat-label>E-mail</mat-label>
+                  <input matInput [(ngModel)]="login.usuario.email" name="email" required>
+                </mat-form-field>
+              </div>
+           </td>
+            <td class="botton">
+                <button mat-stroked-button class="salvar" (click)="enviar()">Entrar</button>
+                <button mat-stroked-button class="voltar" (click)="voltar()">voltar</button>
+            </td>
+        </tr>
+    </mat-card>
+    </table>
+</form>
+

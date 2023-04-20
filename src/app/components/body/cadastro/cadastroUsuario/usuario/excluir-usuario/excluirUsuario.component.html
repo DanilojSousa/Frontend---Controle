@@ -1,0 +1,77 @@
+<form class="example-form">
+  <mat-card class="cabecalho">
+      <div class="botao">
+        <mat-label class="label_cabecalho" disabled>Excluir Cadastro:</mat-label>
+        <input class="id" matInput disabled [(ngModel)]="usuario.id" name="id">
+        <button mat-stroked-button class="excluir" (click)="openDialog()">Excluir</button>
+      <button mat-stroked-button class="voltar" (click)="voltar()">voltar</button>
+    </div>
+  </mat-card>
+      
+    <table class="example-full-width" cellspacing="0"><tr>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Nome</mat-label>
+        <input matInput readonly="true" [(ngModel)]="usuario.nome" name="nome">
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>E-mail</mat-label>
+        <input matInput readonly="true" [(ngModel)]="usuario.email" name="email">
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Telefone</mat-label>
+        <input matInput readonly="true" [(ngModel)]="usuario.fone" *ngIf="fone()" mask="(00) 00000-0000" name="fone">
+        <input matInput readonly="true" [(ngModel)]="usuario.fone" *ngIf="!fone()" mask="(00) 0000-0000" name="fone">
+      </mat-form-field></td> 
+    </tr></table>
+  
+    <table class="example-full-width" cellspacing="0"><tr>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>CEP</mat-label>
+        <input matInput readonly="true" [(ngModel)]="usuario.cep" name="cep">
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Endereço</mat-label>
+        <input matInput readonly="true" [(ngModel)]="usuario.endereco" name="endereco">
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Bairro</mat-label>
+        <input matInput readonly="true" [(ngModel)]="usuario.bairro" name="bairro">
+      </mat-form-field></td>  
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Cidade</mat-label>
+        <input matInput readonly="true" [(ngModel)]="usuario.uf" name="uf">
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>UF</mat-label>
+        <input matInput readonly="true" [(ngModel)]="usuario.uf" name="uf">
+      </mat-form-field></td>
+    </tr></table>
+  
+    <table class="example-full-width" cellspacing="0"><tr>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>CNPJ</mat-label>
+        <input matInput readonly="true" [(ngModel)]="usuario.cpf" mask="00.000.000/0000-00" name="cnpj">
+      </mat-form-field></td>
+     
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Situação</mat-label>
+        <input matInput readonly="true" [(ngModel)]="usuario.situacao.nome" name="situacao">
+      </mat-form-field></td>
+
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Nível Acesso</mat-label>
+        <input matInput readonly="true" [(ngModel)]="usuario.role.nome" name="nivelAcesso">
+      </mat-form-field></td>
+
+      <td><mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Data de Registro</mat-label>
+        <input matInput readonly="true" [matDatepicker]="datepicker" [(ngModel)]="usuario.dataRegistro" name="dataRegistro">
+        <mat-datepicker #datepicker></mat-datepicker>
+      </mat-form-field></td>
+
+    </tr></table>
+
+    
+  </form>
+
+

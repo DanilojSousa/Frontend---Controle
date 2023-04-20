@@ -1,0 +1,47 @@
+.example-form {
+    width: 90%;
+    min-width: 150px;
+    margin: auto;
+  }
+
+  .cabecalho{
+    background-color: #1176c9;
+    margin-bottom: 20px;
+  }
+
+  .example-full-width {
+    width: 100%;
+  }
+  
+  td {
+    padding-right: 8px;
+  }
+  .label_cabecalho{
+    width: 25%;
+    color: #fff;
+  }
+  .botao{
+    display: flex;
+    align-items: center;
+  }
+  button{
+    margin-left: 10px;
+  }
+  :host ::ng-deep .mat-form-field-appearance-fill .mat-form-field-underline::before{
+    background-color: #1176c9;
+  }
+  mat-label{
+    color:#1176c9 ;
+  }
+
+  .number-uf{
+    width: 100px;
+  }
+
+  .senha1{
+    display: flex;
+    justify-content: center;
+  }
+  
+
+

@@ -1,0 +1,28 @@
+<form class="example-form" #form="ngForm">
+  <mat-card class="cabecalho">
+      <div class="botao">
+        <mat-label class="label_cabecalho" disabled>Editar Marca:</mat-label>
+        <input class="id" matInput disabled [(ngModel)]="marca.id" name="id">
+        <button mat-stroked-button class="salvar" (click)="salvar()">Salvar</button>
+      <button mat-stroked-button class="voltar" (click)="voltar()">voltar</button>
+    </div>
+    </mat-card>
+          
+    <table class="example-full-width" cellspacing="0"><tr>
+      <td><mat-form-field class="example-full-width nome" appearance="fill">
+        <mat-label>Nome</mat-label>
+        <input matInput [(ngModel)]="marca.nome" name="nome" (input)="onInput()">
+      </mat-form-field></td>
+
+        <td> <mat-form-field class="example-full-width nome" appearance="fill">
+          <mat-label>Fornecedor</mat-label>
+          <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto" placeholder="Digite um fornecedor" (input)="onInput()">
+          <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+            <mat-option *ngFor="let option of listaUsuarioFiltrado | async" [value]="option">
+              {{option.id}} - {{option.nome}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field></td>
+
+    </tr></table>
+  </form>

@@ -1,0 +1,34 @@
+<form class="example-form" #form="ngForm">
+    <mat-card class="cabecalho">
+        <div class="botao">
+          <mat-label class="label_cabecalho" disabled>Editar Cadastro:</mat-label>
+          <input class="id" matInput disabled [(ngModel)]="login.id" name="id">
+          <button mat-stroked-button class="salvar" (click)="salvar()">Salvar</button>
+        <button mat-stroked-button class="voltar" (click)="voltar()">voltar</button>
+      </div>
+    </mat-card>
+        
+    <table class="example-full-width" cellspacing="0"><tr>
+      <td> <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Usuário</mat-label>
+        <input type="text" matInput [formControl]="myControl"  [matAutocomplete]="auto" placeholder="Digite o nome" (input)="onInput()">
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+          <mat-option *ngFor="let option of listaUsuarioFiltrado | async" [value]="option">
+            {{option.id}} - {{option.nome}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field></td>
+  
+        <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Apelido</mat-label>
+          <input matInput [(ngModel)]="login.apelido" name="apelido" required (input)="onInput()">
+        </mat-form-field></td>
+        <td>
+          <button mat-stroked-button class="salvar trocarSenha" (click)="trocarSenha()">Trocar Senha</button>
+        </td>
+  
+      </tr></table>
+  
+      
+    </form>
+  

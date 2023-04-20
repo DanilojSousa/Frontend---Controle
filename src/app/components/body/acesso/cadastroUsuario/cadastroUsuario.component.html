@@ -1,0 +1,98 @@
+<form class="example-form" #form="ngForm">
+    <mat-card class="cabecalho">
+        <div class="botao">
+          <mat-label class="label_cabecalho" disabled>Cadastro</mat-label>
+          <input matInput [readonly]="true">
+          <button mat-stroked-button class="salvar" (click)="salvar()">Salvar</button>
+          <button mat-stroked-button class="voltar" (click)="voltar()">voltar</button>
+        </div>
+    </mat-card>
+
+    <table class="example-full-width" cellspacing="0"><tr>
+        <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Nome</mat-label>
+          <input matInput [(ngModel)]="nome" name="nome" required >
+        </mat-form-field></td>
+        <td><mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Sobre Nome</mat-label>
+            <input matInput [(ngModel)]="sobreNome" name="sobreNome" required>
+          </mat-form-field></td>
+        <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>E-mail</mat-label>
+          <input type="email" matInput [(ngModel)]="usuario.email" [errorStateMatcher]="matcher" name="email" (blur)="validarPossueEmail(form)">
+           <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+            Por favor, adiciona um e-mail
+          </mat-error>
+        </mat-form-field></td>
+    </tr></table>
+
+    
+    <table class="example-full-width" cellspacing="0"><tr>
+        <td ><mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>CPF</mat-label>
+            <input matInput [(ngModel)]="usuario.cpf" mask="000.000.000-00" name="cpf" required (blur)="validarPossueCpf(form)">
+        </mat-form-field></td>
+        
+        <td><mat-form-field appearance="fill" class="example-full-width">
+            <mat-label>Data de nascimento</mat-label>
+            <input matInput [matDatepicker]="datepicker" [(ngModel)]="usuario.nascimento" name="nascimento" required>
+            <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+            <mat-datepicker #datepicker>
+                <mat-datepicker-actions>
+                    <button mat-button matDatepickerCancel>Cancel</button>
+                    <button mat-raised-button color="primary" matDatepickerApply>Aplicar</button>
+                </mat-datepicker-actions>
+            </mat-datepicker>
+        </mat-form-field></td>
+        
+        <td><mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Telefone</mat-label>
+            <input matInput [(ngModel)]="usuario.fone" mask="(00) 00000-0000" name="fone" required>
+        </mat-form-field></td> 
+    </tr></table>
+    
+    <table  class="example-full-width" cellspacing="0"><tr>
+        <td><mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>CEP</mat-label>
+            <input matInput [(ngModel)]="usuario.cep" name="cep" (blur)="consultaCep(form)" required>
+        </mat-form-field></td>
+        
+        <td><mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Endereço</mat-label>
+            <input matInput [(ngModel)]="usuario.endereco" name="endereco" required>
+        </mat-form-field></td>
+        <td><mat-form-field class="example-full-width number-uf" appearance="fill">
+            <mat-label>Nº</mat-label>
+            <input matInput [(ngModel)]="usuario.numero" name="numero" required>
+        </mat-form-field></td>
+        <td><mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Bairro</mat-label>
+            <input matInput [(ngModel)]="usuario.bairro" name="bairro" required>
+        </mat-form-field></td>  
+        <td><mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Cidade</mat-label>
+            <input matInput [(ngModel)]="usuario.cidade" name="cidade" required>
+        </mat-form-field></td>
+        <td><mat-form-field appearance="fill" class="example-full-width number-uf">
+            <mat-label>UF</mat-label>
+            <input matInput [(ngModel)]="usuario.uf" name="uf" required>
+        </mat-form-field></td>
+    </tr></table>
+    <table class="example-full-width senha1" cellspacing="0"><tr>
+        <td><mat-form-field appearance="fill">
+            <mat-label>Senha</mat-label>
+            <input matInput [(ngModel)]="senha1" name="senha1"  [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field></td>
+      
+        <td><mat-form-field appearance="fill">
+            <mat-label>Confirmar Senha</mat-label>
+            <input matInput [(ngModel)]="senha2" name="senha2" [type]="hide ?  'password' : 'text'" (blur)="validarSenha(form)">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field></td>
+    </tr></table>
+</form>

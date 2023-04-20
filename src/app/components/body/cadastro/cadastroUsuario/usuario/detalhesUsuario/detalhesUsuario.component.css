@@ -1,0 +1,39 @@
+.example-form {
+    width: 90%;
+    min-width: 150px;
+    margin: auto;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  
+  .cabecalho{
+    background-color: #1176c9;
+    margin-bottom: 20px;
+  }
+
+  .id{
+    color: #ffffff;
+  }
+  td {
+    padding-right: 8px;
+  }
+  .label_cabecalho{
+    width: 20%;
+    color: #ffffff;
+  }
+  .botao{
+    display: flex;
+    align-items: center;
+  }
+  button{
+    margin-left: 10px;
+  }
+  :host ::ng-deep .mat-form-field-appearance-fill .mat-form-field-underline::before{
+    background-color: #1176c9;
+  }
+  mat-label{
+    color:#1176c9 ;
+  }
+  

@@ -1,0 +1,66 @@
+table {
+    width: 40%;
+    height: 80%;
+    margin: auto;
+  }
+
+th{  
+  font-weight: 400; 
+  padding-right: 20px;
+  color:#1176c9 ;
+}
+
+td{
+  font-size: 12px;
+}
+.botao_acao{
+  padding-left: 55px;
+}
+
+.botao_acao button{
+  margin-left: 5%;
+
+}
+.acao{
+  text-align: center;
+}
+.mat-stroked-button{
+  margin-right: 10px;
+}
+
+mat-paginator{
+  display: flex;
+  justify-content: center;
+}
+.salvar{
+  margin-right: 10px;
+}
+mat-icon{
+  font-size: 15px;
+}
+.botao_icone{
+  width: 30px;
+  height: 30px;
+}
+.spinner{
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 80%;
+  
+}
+:host ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {   
+  stroke: #1176c9;
+}
+
+:host ::ng-deep .mat-cell{
+  border-bottom-color: #1176c9;
+}
+
+:host ::ng-deep th.mat-header-cell{
+  border-bottom-color: #7db7e6;
+}
+
+

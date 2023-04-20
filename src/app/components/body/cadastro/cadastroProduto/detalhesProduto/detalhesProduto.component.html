@@ -1,0 +1,77 @@
+<form class="example-form">
+  <mat-card class="cabecalho">
+      <div class="botao">
+        <mat-label class="label_cabecalho" disabled>Destalhes do Produto:</mat-label>
+        <input class="id" matInput disabled [(ngModel)]="produto.id" name="id">
+          <button mat-stroked-button class="salvar" (click)="editar()">Editar</button>
+          <button mat-stroked-button class="voltar" (click)="voltar()">Voltar</button>
+        </div>
+  </mat-card>
+   
+    <table class="example-full-width" cellspacing="0"><tr>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Nome</mat-label>
+        <input matInput readonly="true" [(ngModel)]="produto.nome" name="nome">
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Modelo</mat-label>
+        <input matInput readonly="true" [(ngModel)]="produto.modelo" name="modelo">
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>PartNumber</mat-label>
+        <input matInput readonly="true" [(ngModel)]="produto.partNumber" name="partNumber">
+      </mat-form-field></td> 
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Marca</mat-label>
+        <input matInput readonly="true" [(ngModel)]="produto.marca.nome" name="marca">
+      </mat-form-field></td> 
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>EAN</mat-label>
+        <input matInput readonly="true" [(ngModel)]="produto.ean" name="ean">
+      </mat-form-field></td> 
+    </tr></table>
+  
+    <table class="example-full-width" cellspacing="0"><tr>
+      <td><mat-form-field class="example-full-width medidas" appearance="fill">
+        <mat-label>Alt.</mat-label>
+        <input matInput readonly="true" [(ngModel)]="produto.altura" name="altura">
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width medidas" appearance="fill">
+        <mat-label>Comp.</mat-label>
+        <input matInput readonly="true" [(ngModel)]="produto.comprimento" name="comprimento">
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width medidas" appearance="fill">
+        <mat-label>Larg.</mat-label>
+        <input matInput readonly="true" [(ngModel)]="produto.largura" name="bairro">
+      </mat-form-field></td>  
+      <td><mat-form-field class="example-full-width medidas" appearance="fill">
+        <mat-label>QTD Emb.</mat-label>
+        <input matInput readonly="true" [(ngModel)]="produto.qtdEmbalagem" name="qtdEmbalagem">
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width medidas" appearance="fill">
+        <mat-label>QTD Un.</mat-label>
+        <input matInput readonly="true" [(ngModel)]="produto.qtdUnidade" name="qtdUnidade">
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width medidas" appearance="fill">
+        <mat-label>Unidade</mat-label>
+        <input matInput readonly="true" [(ngModel)]="produto.unidadeMedida.nome" name="unidadeMedida">
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width medidas" appearance="fill">
+        <mat-label>Garantia</mat-label>
+        <input matInput readonly="true" [(ngModel)]="produto.garantia" name="garantia">
+      </mat-form-field></td>
+    </tr></table>
+  
+    <table class="example-full-width" cellspacing="0"><tr>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>NCM</mat-label>
+        <input matInput readonly="true" [(ngModel)]="produto.ncm.numeroNcm" name="ncm">
+      </mat-form-field></td>
+  
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Situação</mat-label>
+        <input matInput readonly="true" [(ngModel)]="produto.situacao.nome" name="situacao">
+      </mat-form-field></td>
+    </tr></table>
+  </form>
+

@@ -1,0 +1,67 @@
+.example-form {
+  width: 90%;
+  margin: auto;
+}
+.medidas{
+  width: 300px!important;
+}
+
+.cabecalho{
+  background-color: #1176c9;
+  margin-bottom: 20px;
+}
+
+.id{
+  color: #ffffff;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+td {
+  padding-right: 8px;
+}
+.label_cabecalho{
+  width: 12%;
+  color: #ffffff;
+}
+.botao{
+  display: flex;
+  align-items: center;
+}
+button{
+  margin-left: 10px;
+}
+:host ::ng-deep .mat-form-field-appearance-fill .mat-form-field-underline::before{
+  background-color: #1176c9;
+}
+mat-label{
+  color:#1176c9 ;
+}
+.example-h2 {
+  margin: 10px;
+}
+
+.example-section {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 60px;
+}
+
+.example-margin {
+  color:  #1176c9;
+  margin: 0 10px;
+}
+.mat-checkbox-inner-container{
+  color: #1176c9;
+}
+:host ::ng-deep .mat-checkbox-frame{
+  border-color: #1176c9;
+}
+:host ::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background 
+{
+  background-color: #1176c9;
+}
+

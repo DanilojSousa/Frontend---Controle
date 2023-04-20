@@ -1,0 +1,23 @@
+<form class="example-form" #form="ngForm">
+    <table class="example-full-width senha1" cellspacing="0"><tr>
+        <td><mat-form-field appearance="fill">
+            <mat-label>Senha</mat-label>
+            <input matInput [(ngModel)]="senha1" name="senha1"  [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field></td>
+      
+        <td><mat-form-field appearance="fill">
+            <mat-label>Confirmar Senha</mat-label>
+            <input matInput [(ngModel)]="senha2" name="senha2" [type]="hide ?  'password' : 'text'" (blur)="validarSenha(form)">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field></td>
+          <td class="botton">
+            <button mat-stroked-button class="salvar" (click)="alterar()">Alterar</button>
+            <button mat-stroked-button class="voltar" (click)="voltar()">cancelar</button>
+        </td>
+    </tr></table>
+</form>

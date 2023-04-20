@@ -1,0 +1,43 @@
+.geral{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.conteudo{
+    display: flex;
+    justify-content: center;
+    height: 200px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.botao_menu{
+    display: flex;
+    justify-content: flex-end;
+}
+button{
+    margin-right: 10px;
+}
+
+.lista{
+    padding-left: 10px;
+}
+.parceiro{
+    width: 410px;
+    padding-left: 10px;
+}
+.produto{
+    width: 310px;
+    padding-left: 10px;
+}
+
+:host ::ng-deep .mat-form-field-appearance-fill .mat-form-field-underline::before{
+    background-color: #1176c9;
+  }
+  mat-label{
+    color:#1176c9 ;
+  }
+
+  td{
+    padding-left: 20px;
+  }

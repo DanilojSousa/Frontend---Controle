@@ -1,0 +1,25 @@
+<form class="example-form">
+    <mat-card class="cabecalho">
+        <div class="botao">
+          <mat-label class="label_cabecalho" disabled>Excluir Cadastro:</mat-label>
+          <input class="id" matInput disabled [(ngModel)]="login.id" name="id">
+          <button mat-stroked-button class="excluir" (click)="openDialog()">Excluir</button>
+        <button mat-stroked-button class="voltar" (click)="voltar()">voltar</button>
+      </div>
+    </mat-card>
+        
+      <table class="example-full-width" cellspacing="0"><tr>
+        <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Nome</mat-label>
+          <input matInput readonly="true" [(ngModel)]="login.usuario.nome" name="nome">
+        </mat-form-field></td>
+
+        <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Apelido</mat-label>
+          <input matInput readonly="true" [(ngModel)]="login.apelido" name="apelido">
+        </mat-form-field></td>
+      </tr></table>
+    </form>
+  
+  
+  

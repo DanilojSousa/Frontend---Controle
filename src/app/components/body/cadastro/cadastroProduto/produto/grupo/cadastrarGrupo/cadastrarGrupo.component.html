@@ -1,0 +1,29 @@
+<form class="example-form">
+  <mat-card class="cabecalho">
+      <div class="botao">
+        <mat-label class="label_cabecalho" disabled>Cadastrar Grupo</mat-label>
+        <input matInput [readonly]="true" >
+        <button mat-stroked-button class="salvar" (click)="salvar()">Salvar</button>
+        <button mat-stroked-button class="voltar" (click)="voltar()">voltar</button>
+      </div>
+  </mat-card>
+  
+    <table class="example-full-width" cellspacing="0"><tr>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Nome</mat-label>
+        <input matInput [(ngModel)]="grupoProduto.nome" name="nome" required>
+      </mat-form-field></td>
+
+      <td> <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Produto</mat-label>
+        <input type="text" matInput [formControl]="myControl"  [matAutocomplete]="auto" placeholder="Digite o nome">
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+          <mat-option *ngFor="let option of listaProdutoFiltrado | async" [value]="option">
+            {{option.id}} - {{option.nome}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field></td>
+
+    </tr></table>
+  </form>
+
